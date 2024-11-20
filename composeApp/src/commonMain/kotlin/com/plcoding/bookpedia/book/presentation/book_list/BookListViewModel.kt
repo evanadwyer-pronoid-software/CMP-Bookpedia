@@ -30,7 +30,7 @@ class BookListViewModel(
     private var cachedBooks = emptyList<Book>()
     private var searchJob: Job? = null
 
-    private val _state = MutableStateFlow(BookListState())
+    private val _state = MutableStateFlow(BookListState(isLoading = true))
     val state = _state
         .onStart {
             if (cachedBooks.isEmpty()) {
