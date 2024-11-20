@@ -13,7 +13,7 @@ inline fun <T, E: Error, R> Outcome<T, E>.map(map: (T) -> R): Outcome<R, E> {
     }
 }
 
-fun <T, E: Error> Outcome<T, E>.asEmptyDataResult(): EmptyResult<E> {
+fun <T, E: Error> Outcome<T, E>.asEmptyDataResult(): EmptyOutcome<E> {
     return map {  }
 }
 
@@ -36,4 +36,4 @@ inline fun <T, E: Error> Outcome<T, E>.onError(action: (E) -> Unit): Outcome<T, 
     }
 }
 
-typealias EmptyResult<E> = Outcome<Unit, E>
+typealias EmptyOutcome<E> = Outcome<Unit, E>
